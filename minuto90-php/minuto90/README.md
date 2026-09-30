@@ -46,15 +46,21 @@ Abre `config/db.php` y revisa los datos. Por defecto XAMPP usa usuario
 
 ```
 minuto90/
+├── admin/                      Panel de Administración
+│   ├── index.php               Dashboard principal (métricas y últimos pedidos)
+│   ├── pedidos.php             Gestión de pedidos (cambio de estado y reembolsos)
+│   ├── usuarios.php            Gestión de usuarios (lista con direcciones y opción de eliminar)
+│   └── header_admin.php        Encabezado y control de acceso por rol
 ├── config/
 │   └── db.php                  Conexión a MySQL con PDO
 ├── includes/
-│   ├── funciones.php           Funciones reutilizables (sesión, carrito, precios)
+│   ├── funciones.php           Funciones reutilizables (sesión, carrito, precios, roles)
 │   ├── header_tienda.php       Encabezado que usan todas las páginas internas
 │   └── sidebar.php             Menú lateral generado desde la BD
 ├── sql/
 │   └── minuto90.sql            Script para crear la BD y cargar los datos
-├── css/                        Estilos (los mismos de antes)
+├── css/
+│   └── admin.css               Estilos del panel de administración
 ├── js/
 │   ├── tienda.js               Menús y selección de talla
 │   └── validation.js           Validación en el navegador
@@ -73,7 +79,7 @@ minuto90/
 ├── procesar_pedido.php         Guarda el pedido en la BD (con transacción)
 ├── gracias.php                 Confirmación de compra
 ├── perfil.php                  Datos del usuario + historial real de compras
-├── seguimiento.php             Estado del pedido (bodega/enviado/recibido)
+├── seguimiento.php             Estado del pedido
 └── ayuda.php                   Preguntas frecuentes
 ```
 
@@ -140,8 +146,14 @@ Estos detalles son buenos para mencionar al presentar el proyecto:
 
 ## 6. Ideas para seguir mejorando
 
-- Panel de administrador para agregar/editar productos desde la web
-- Cambiar el estado de los pedidos (bodega → enviado → recibido)
+- **Panel de administración completo incluido en `/admin/`**:
+  - **Gestión de Usuarios:** Ver todos los usuarios registrados con su nombre, correo, teléfono y dirección física guardada, además de poder eliminar usuarios de la base de datos.
+  - **Gestión de Pedidos:** Ver todos los pedidos con sus detalles completos (dirección de envío, items comprados, tallas, cantidades, totales) y cambiar el estado del pedido entre:
+    - 📦 *En Bodega* (en proceso)
+    - 🚚 *Enviado* (en camino)
+    - ✅ *Entregado / Recibido*
+    - ❌ *Cancelado*
+    - 💸 *Reembolsado*
 - Subida de imágenes de productos desde un formulario
 - Filtros por precio y talla en el catálogo
 - Recuperación de contraseña por correo

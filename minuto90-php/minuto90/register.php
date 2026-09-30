@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Inicia sesión automáticamente
         $_SESSION['usuario_id']     = (int)$pdo->lastInsertId();
         $_SESSION['usuario_nombre'] = $datos['nombre'];
+        $_SESSION['usuario_rol']    = 'usuario';
 
         header('Location: bienvenida.php');
         exit;

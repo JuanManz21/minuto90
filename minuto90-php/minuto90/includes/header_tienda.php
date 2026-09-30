@@ -57,6 +57,9 @@ $total_carrito    = contar_carrito();
             </button>
             <div class="user-dropdown" id="user-dropdown">
                 <?php if (hay_sesion()): ?>
+                    <?php if (es_admin()): ?>
+                        <a href="admin/index.php" style="font-weight:bold; color:#e63946;">⚡ Panel Admin</a>
+                    <?php endif; ?>
                     <a href="perfil.php">Tu perfil</a>
                     <a href="ayuda.php">Ayuda</a>
                     <a href="seguimiento.php">Seguimiento</a>

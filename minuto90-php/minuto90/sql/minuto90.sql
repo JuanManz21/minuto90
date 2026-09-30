@@ -108,7 +108,7 @@ INSERT INTO productos (nombre, descripcion, precio, precio_antes, descuento, ima
 -- ------------------------------------------------------------
 CREATE TABLE pedidos (
     id              INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id      INT           NOT NULL,
+    usuario_id      INT           DEFAULT NULL,
     numero_pedido   VARCHAR(20)   NOT NULL UNIQUE,
     nombre_envio    VARCHAR(120)  NOT NULL,
     direccion       VARCHAR(200)  NOT NULL,
@@ -118,11 +118,11 @@ CREATE TABLE pedidos (
     subtotal        INT           NOT NULL,
     envio           INT           NOT NULL DEFAULT 5000,
     total           INT           NOT NULL,
-    estado          ENUM('bodega','enviado','recibido') NOT NULL DEFAULT 'bodega',
+    estado          ENUM('bodega','enviado','recibido','cancelado','reembolsado') NOT NULL DEFAULT 'bodega',
     creado_en       TIMESTAMP     DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_pedido_usuario
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-        ON DELETE CASCADE
+        ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
 -- ------------------------------------------------------------

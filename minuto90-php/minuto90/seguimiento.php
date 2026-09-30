@@ -44,28 +44,35 @@ require 'includes/header_tienda.php';
             <a href="tienda.php" style="color:#007bff;">Ir a la tienda</a>
         </p>
     <?php else: ?>
-        <div class="seguimiento-steps">
-            <div class="step">
-                <div class="step-icon" style="<?= $paso_actual >= 1 ? '' : 'background:#ccc;' ?>">
-                    <svg viewBox="0 0 24 24" stroke="#fff" stroke-width="1.8" fill="none"><path d="M3 9.5 12 4l9 5.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M9 21v-7h6v7"/></svg>
-                </div>
-                <p>Bodega</p>
+        <?php if (in_array($pedido['estado'], ['cancelado', 'reembolsado'], true)): ?>
+            <div style="max-width:500px; margin:20px auto; padding:15px; border-radius:8px; text-align:center; background-color:#f8d7da; color:#721c24;">
+                <h3 style="margin-top:0;">Pedido <?= ucfirst(e($pedido['estado'])) ?></h3>
+                <p>Este pedido ha sido marcado como <strong><?= e($pedido['estado']) ?></strong> por la administración.</p>
             </div>
-            <div class="step-line"></div>
-            <div class="step">
-                <div class="step-icon" style="<?= $paso_actual >= 2 ? '' : 'background:#ccc;' ?>">
-                    <svg viewBox="0 0 24 24" stroke="#fff" stroke-width="1.8" fill="none"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg>
+        <?php else: ?>
+            <div class="seguimiento-steps">
+                <div class="step">
+                    <div class="step-icon" style="<?= $paso_actual >= 1 ? '' : 'background:#ccc;' ?>">
+                        <svg viewBox="0 0 24 24" stroke="#fff" stroke-width="1.8" fill="none"><path d="M3 9.5 12 4l9 5.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1Z"/><path d="M9 21v-7h6v7"/></svg>
+                    </div>
+                    <p>Bodega</p>
                 </div>
-                <p>Enviado</p>
-            </div>
-            <div class="step-line"></div>
-            <div class="step">
-                <div class="step-icon" style="<?= $paso_actual >= 3 ? '' : 'background:#ccc;' ?>">
-                    <svg viewBox="0 0 24 24" stroke="#fff" stroke-width="1.8" fill="none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon" style="<?= $paso_actual >= 2 ? '' : 'background:#ccc;' ?>">
+                        <svg viewBox="0 0 24 24" stroke="#fff" stroke-width="1.8" fill="none"><rect x="1" y="7" width="14" height="10" rx="1"/><path d="M15 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.6"/><circle cx="17.5" cy="19" r="1.6"/></svg>
+                    </div>
+                    <p>Enviado</p>
                 </div>
-                <p>Recibido</p>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-icon" style="<?= $paso_actual >= 3 ? '' : 'background:#ccc;' ?>">
+                        <svg viewBox="0 0 24 24" stroke="#fff" stroke-width="1.8" fill="none"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg>
+                    </div>
+                    <p>Recibido</p>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <div style="max-width:600px;margin:0 auto;padding:20px;">
             <h3 style="margin-bottom:12px;">Productos de este pedido</h3>

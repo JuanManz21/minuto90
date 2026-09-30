@@ -42,8 +42,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_regenerate_id(true);   // evita robo de sesión
             $_SESSION['usuario_id']     = (int)$usuario['id'];
             $_SESSION['usuario_nombre'] = $usuario['nombre'];
+            $_SESSION['usuario_rol']    = $usuario['rol'] ?? 'usuario';
 
-            header('Location: bienvenida.php');
+            if ($_SESSION['usuario_rol'] === 'admin') {
+                header('Location: admin/index.php');
+            } else {
+                header('Location: bienvenida.php');
+            }
             exit;
         }
     }

@@ -50,6 +50,20 @@ function requiere_login() {
     }
 }
 
+/** ¿El usuario logueado es administrador? */
+function es_admin() {
+    return isset($_SESSION['usuario_rol']) && $_SESSION['usuario_rol'] === 'admin';
+}
+
+/** Bloquea la página si el usuario no es administrador */
+function requiere_admin() {
+    requiere_login();
+    if (!es_admin()) {
+        header('Location: ../tienda.php');
+        exit;
+    }
+}
+
 /* ============================================================
    CARRITO (guardado en la sesión)
    ============================================================ */
