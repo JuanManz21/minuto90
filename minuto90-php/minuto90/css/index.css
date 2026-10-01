@@ -1,0 +1,276 @@
+/*
+ * index.css - Estilos específicos de la página principal
+ * Banner, productos destacados y secciones exclusivas del home
+ */
+
+/* Banner principal */
+.hero-banner {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.banner-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.banner-image {
+    flex: 1;
+    text-align: center;
+}
+
+.banner-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.banner-content {
+    flex: 1;
+}
+
+.banner-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.banner-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Badge de oferta en el banner */
+.offer-badge {
+    background-color: #000;
+    border-radius: 12px;
+    padding: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.discount-text {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.discount-number {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+.discount-off {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+.offer-product-preview {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.offer-product-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* Sección de productos destacados */
+.featured-products {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 40px;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta de producto */
+.product-card {
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    border-color: #000;
+}
+
+/* Badge de descuento en producto */
+.product-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff4444;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.badge-red {
+    background-color: #ff6666;
+}
+
+/* Imagen del producto */
+.product-image {
+    margin: 25px 0;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Información del producto */
+.product-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.product-price-before {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.product-price-now {
+    font-size: 28px;
+    font-weight: 700;
+    color: #00cc00;
+    margin-bottom: 20px;
+}
+
+/* Botón de compra */
+.btn-buy {
+    width: 100%;
+    padding: 14px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Responsive para página principal */
+@media (max-width: 968px) {
+    .banner-container {
+        flex-direction: column;
+    }
+
+    .banner-title {
+        font-size: 28px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 25px;
+        margin: 20px;
+    }
+
+    .featured-products {
+        padding: 0 20px;
+    }
+
+    .discount-number {
+        font-size: 44px;
+    }
+
+    .discount-off {
+        font-size: 36px;
+    }
+
+    .offer-badge {
+        padding: 20px;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        padding: 20px;
+    }
+
+    .banner-title {
+        font-size: 24px;
+    }
+
+    .banner-description {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .product-card {
+        padding: 20px;
+    }
+}
+/* El botón "Comprar Ahora" ahora es un enlace (<a>) */
+a.btn-buy {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.4;
+}

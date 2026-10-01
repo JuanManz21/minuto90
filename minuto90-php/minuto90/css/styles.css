@@ -1,0 +1,225 @@
+/*
+ * styles.css - Estilos globales aplicables a todas las páginas
+ * Archivo base con reset, tipografía y componentes comunes
+ */
+
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Tipografía base */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #000;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 1.8;
+}
+
+/* Enlaces globales */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Botones globales */
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Header global (usado en index.html) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    border-bottom: 2px solid #e0e0e0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-login,
+.btn-register {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 15px;
+    background-color: #000;
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+}
+
+.btn-login:hover,
+.btn-register:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.btn-register {
+    background-color: #000;
+}
+
+/* Inputs globales */
+.form-input {
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #000;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+/* Footer global */
+.footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 60px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-contact {
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* Utilidades de espaciado */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+
+/* Utilidades de texto */
+.text-center { text-align: center; }
+.text-bold { font-weight: 700; }
+
+/* Responsive global */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 12px 15px;
+    }
+
+    .logo-text {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+}
+/* Mensajes de error de validación (JavaScript) */
+.error-message {
+    display: block;
+    color: #e63946;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 16px;
+}
+
+.input-invalido {
+    border-color: #e63946 !important;
+}
